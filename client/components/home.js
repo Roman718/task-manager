@@ -10,7 +10,6 @@ const Home = () => {
   const [categories, setAddCategories] = useState([])
   const [taskList, setTaskList] = useState([])
   const [newCategory, setNewCategory] = useState('')
-  const [toggleStatus, setToggleStatus] = useState({})
   const { category } = useParams()
 
   const addCategory = (categoryName) => {
@@ -24,8 +23,11 @@ const Home = () => {
   }
 
   const updateStatus = (status, id) => {
+    // eslint-disable-next-line no-console
+    console.log('test')
     axios.patch(`${URL}/${category}/${id}`, { status })
-    setToggleStatus({ id, status })
+    const updatedStatus = taskList.map((el) => (el.taskId === id ? { ...el, status } : el))
+    setTaskList(updatedStatus)
   }
 
   useEffect(() => {
@@ -36,7 +38,7 @@ const Home = () => {
     if (typeof category !== 'undefined') {
       axios(`${URL}/${category}`).then(({ data }) => setTaskList(data))
     }
-  }, [category, toggleStatus])
+  }, [category])
 
   return (
     <div>
