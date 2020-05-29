@@ -23,10 +23,14 @@ const Home = () => {
   }
 
   const updateStatus = (status, id) => {
-    // eslint-disable-next-line no-console
-    console.log('test')
     axios.patch(`${URL}/${category}/${id}`, { status })
     const updatedStatus = taskList.map((el) => (el.taskId === id ? { ...el, status } : el))
+    setTaskList(updatedStatus)
+  }
+
+  const updateTitle = (title, id) => {
+    axios.patch(`${URL}/${category}/${id}`, { title })
+    const updatedStatus = taskList.map((el) => (el.taskId === id ? { ...el, title } : el))
     setTaskList(updatedStatus)
   }
 
@@ -51,7 +55,12 @@ const Home = () => {
         exact
         path="/:category"
         component={() => (
-          <CategoryList taskList={taskList} addTask={addTask} updateStatus={updateStatus} />
+          <CategoryList
+            taskList={taskList}
+            addTask={addTask}
+            updateStatus={updateStatus}
+            updateTitle={updateTitle}
+          />
         )}
       />
     </div>

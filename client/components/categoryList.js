@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import Head from './head'
+import TaskItem from './taskItem'
 
 const CategoryList = (props) => {
   const [newTask, setNewTask] = useState('')
+
   return (
     <div>
       <Head title="Hello" />
@@ -11,49 +13,13 @@ const CategoryList = (props) => {
           <ul>
             {props.taskList.map((el) => (
               <li key={el.taskId}>
-                {el.title}
-                {el.status === 'new' ? (
-                  <button
-                    type="button"
-                    className="bg-gray-700"
-                    onClick={() => props.updateStatus('in progress', el.taskId)}
-                  >
-                    In progress
-                  </button>
-                ) : (
-                  ''
-                )}
-                {el.status === 'in progress' ? (
-                  <div>
-                    <button
-                      type="button"
-                      className="bg-gray-700 mr-5"
-                      onClick={() => props.updateStatus('blocked', el.taskId)}
-                    >
-                      block
-                    </button>
-                    <button
-                      type="button"
-                      className="bg-gray-700"
-                      onClick={() => props.updateStatus('done', el.taskId)}
-                    >
-                      done
-                    </button>
-                  </div>
-                ) : (
-                  ''
-                )}
-                {el.status === 'blocked' ? (
-                  <button
-                    type="button"
-                    className="bg-gray-700 mr-5"
-                    onClick={() => props.updateStatus('new', el.taskId)}
-                  >
-                    block
-                  </button>
-                ) : (
-                  ''
-                )}
+                <TaskItem
+                  taskId={el.taskId}
+                  title={el.title}
+                  status={el.status}
+                  updateTitle={props.updateTitle}
+                  updateStatus={props.updateStatus}
+                />
               </li>
             ))}
           </ul>
