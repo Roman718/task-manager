@@ -1,0 +1,34 @@
+[
+  {
+    "taskId": "3TWTHFEhe",
+    "title": "Сделать уборку",
+    "status": "new",
+    "_isDeleted": true,
+    "_createdAt": 1590515715523,
+    "_deletedAt": 1590524641740
+  },
+  {
+    "taskId": "CGnWnpoJP",
+    "title": "Сделать уборку",
+    "status": "new",
+    "_isDeleted": false,
+    "_createdAt": 1590516528418,
+    "_deletedAt": null
+  },
+  {
+    "taskId": "4YUK266JW",
+    "title": "Сделать уборку",
+    "status": "new",
+    "_isDeleted": false,
+    "_createdAt": 1590516572507,
+    "_deletedAt": null
+  },
+  {
+    "taskId": "lLP-PTkH9",
+    "title": "Сделать уборку",
+    "status": "new",
+    "_isDeleted": false,
+    "_createdAt": 1590516589806,
+    "_deletedAt": null
+  }
+]
